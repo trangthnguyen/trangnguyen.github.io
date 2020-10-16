@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="Trang Nguyen">
+		<meta name="description" content="This includes Trang Nguyen's Django learning notes.">
+		<title>Trang's Django learning notes</title>
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<link rel="shortcut icon" href="firefly.ico" type="image/x-icon">
+	</head>
+	<body>
+		<p>Test</p>
+	</body>
+</html>
