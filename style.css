@@ -1,17 +1,13 @@
 body {
   position: inherit;
   min-height: 100vh;
-  padding: 2rem;
+  padding: 0.75rem;
 }
 
 footer {
   position: absolute;
   bottom: 0;
   background-color: #F3F5F5;
-  font-size: 2rem;
-  color: red;
-}
-
-footer p {
-  color: red;
+  font-size: 0.8rem;
+  padding: 0.75rem;
 }
