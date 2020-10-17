@@ -11,3 +11,7 @@ footer {
   font-size: 0.8rem;
   color: red;
 }
+
+footer p {
+  color: red;
+}
