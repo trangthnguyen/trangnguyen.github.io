@@ -1,5 +1,5 @@
 body {
-  position: relative;
+  position: inherit;
   min-height: 100vh;
   padding: 2rem;
 }
@@ -9,4 +9,5 @@ footer {
   bottom: 0;
   background-color: #F3F5F5;
   font-size: 0.8rem;
+  color: red;
 }
