@@ -6,17 +6,96 @@
 		<meta name="description" content="This includes Trang Nguyen's Django learning notes.">
 		<title>Trang's Django learning notes</title>
 		<link href="../style.css" rel="stylesheet" type="text/css">
-		<link rel="shortcut icon" href="firefly.ico" type="image/x-icon">
+        <script src="../script.js" defer></script>
+		<link rel="shortcut icon" href="../firefly.ico" type="image/x-icon">
 	</head>
 	<body>
+        
+        <header>
+            <p>Disclaimer: Hi there! This is my personal github website, where I keep notes of various things that I am interested in. They may also be useful for you. However, please remember you use them at your own risk. I shall not be responsible for the accuracy of the information on the website or any consequences that you may encounter from using the information.</p>
+        </header>
+        
+        <main>
+        <div>Below is the summary of Django documentation. I find the <a href="https://docs.djangoproject.com/en/3.1/">official documentation</a> a bit difficult to follow so I summarize the parts that I need in my own way.</div>
+            
 		<div>
-			<h2 class="heading">Models and databases</h2>
-			<div>
-				<p>Source: <a href="https://docs.djangoproject.com/en/3.1/topics/db/"></a></p>
-				<p>A model is the single, definitive source of data about your data. It contains 
-					the essential fields and behaviors of the data you’re storing. Generally, 
-					each model maps to a single database table.</p>
+			<h2 class="heading">
+                Models and databases 
+                <span class="expand">Expand</span>
+                <span class="collapse">Collapse</span>
+            </h2>
+			<div class="content">
+				<p class="source">Source: <a href="https://docs.djangoproject.com/en/3.1/topics/db/">https://docs.djangoproject.com/en/3.1/topics/db/</a></p>
+                
+				<p>A model is the single, definitive source of data about your data. It contains the essential fields and behaviors of the data you’re storing. Generally, each model maps to a single database table.</p>
+                
+                <h3 class="heading">
+                    Creating models
+                    <span class="expand">Expand</span>
+                    <span class="collapse">Collapse</span>
+                </h3>
+                
+                <div class="content">
+                    <p class="source">Source: <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Models">https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Models</a></p>
+                    
+                    <p>Models are usually defined in an application's <code>models.py</code> file (e.g. file <code>myapp/models.py</code>). They are implemented as subclasses of <code>django.db.models.Model</code>, and can include fields, methods and metadata. The code fragment below shows a "typical" model, named <code>MyModelName:</code></p>
+                        
+                    <pre><code>
+                    from django.db import models
+
+                    class MyModelName(models.Model):
+                        """A typical class defining a model, derived from the Model class."""
+
+                        # Fields
+                        my_field_name = models.CharField(max_length=20, help_text='Enter field documentation')
+                        ...
+
+                        # Metadata
+                        class Meta: 
+                           ordering = ['-my_field_name']
+
+                        # Methods
+                        def get_absolute_url(self):
+                           """Returns the url to access a particular instance of MyModelName."""
+                           return reverse('model-detail-view', args=[str(self.id)])
+
+                        def __str__(self):
+                           """String for representing the MyModelName object (in Admin site etc.)."""
+                           return self.my_field_name
+                    </code></pre>
+                    
+                    <h4 class="heading">
+                        Fields
+                        <span class="expand">Expand</span>
+                        <span class="collapse">Collapse</span>
+                    </h4>
+                    
+                    <div class="content">
+                        
+                        <p class="source">Source 1: <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Models">https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Models</a></p>
+                        
+                        <p class="source">Source 2: <a href="https://docs.djangoproject.com/en/3.1/topics/db/models/#fields">https://docs.djangoproject.com/en/3.1/topics/db/models/#fields</a></p>
+                        
+                        <p>The most important part of a model – and the only required part of a model – is the list of database fields it defines. Fields are specified by class attributes. A model can have an arbitrary number of fields, of any type — each one represents a column of data that we want to store in one of our database tables. Each database record (row) will consist of one of each field value. Let's look at the example seen below:</p>
+                        
+                        <pre><code>
+                        my_field_name = models.CharField(max_length=20, help_text='Enter field documentation')
+                        </code></pre>
+
+                        <p>Our above example has a single field called <code>my_field_name</code>, of type <code>models.CharField</code> — which means that this field will contain strings of alphanumeric characters.</p>
+
+                        <p>The order that fields are declared will affect their default order if a model is rendered in a form (e.g. in the Admin site), though this may be overridden.</p>
+                        
+                        <h5 class="heading">
+                            Field types
+                            <span class="expand">Expand</span>
+                            <span class="collapse">Collapse</span>
+                        </h4>
+                        
+                    </div>
+                </div>
 			</div>
 		</div>
+        </main>
 	</body>
 </html>
