@@ -48,6 +48,7 @@ header p {
     background-color: inherit;
     padding: 3rem;
     border-bottom-right-radius: 1rem;
+    box-shadow: 1px 1px 1px grey;
 }
 
 #menu #home {
