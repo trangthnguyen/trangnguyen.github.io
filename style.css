@@ -3,29 +3,31 @@
     margin: 0;
 }
 
-header {
-    height: 15vh;
+body {
+    min-width: 50rem;
 }
 
 #disclaimer {
-    height: 8vh;
+    height: 3.5rem;
     background-color: #F3F5F5;
     font-size: 0.8rem;
 }
 
 header p {
+    height: 3rem;
     padding: 0.5rem;
+    background: white;
 }
 
 main {
-    height: 85vh;
+    height: calc(100vh - 6.5rem);
     display: grid;
     grid-template-columns: 25rem auto;
     line-height: 1.5;
 }
 
 .toc, .maincontent {
-    height: 85vh;
+    height: 100%;
     overflow: auto;
     padding-bottom: 3rem;
 }
