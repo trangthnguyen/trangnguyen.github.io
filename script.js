@@ -258,3 +258,14 @@ for (let elem of showalls) {
         showall(tocheading);
     })
 }
+
+var menubutton = document.querySelector('#menubutton button');
+var menu = document.querySelector('#menu');
+menubutton.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (menu.style.display == 'block') {
+        menu.style.display = 'none';
+    } else {
+        menu.style.display = 'block';
+    }
+})

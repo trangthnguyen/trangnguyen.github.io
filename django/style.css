@@ -1,0 +1,6 @@
+main {
+    display: grid;
+    grid-template-columns: 25rem auto;
+    line-height: 1.5;
+}
+
