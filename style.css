@@ -86,12 +86,16 @@ main {
 
 .toc, .maincontent {
     height: 100%;
-    overflow: auto;
     padding-bottom: 3rem;
 }
 
 .toc {
     white-space: nowrap;
+    overflow: scroll;
+}
+
+#tableofcontents {
+    font-weight: 900;
 }
 
 .toc .source {
@@ -153,6 +157,7 @@ button {
 
 .maincontent {
     padding-left: 0.5rem;
+    overflow: auto;
 }
 
 .maincontent .content {
