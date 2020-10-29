@@ -4,85 +4,130 @@
 }
 
 header {
-    height: 10vh;
+    height: 15vh;
+}
+
+#disclaimer {
+    height: 8vh;
     background-color: #F3F5F5;
     font-size: 0.8rem;
-    padding: 0.75rem;
+}
+
+header p {
+    padding: 0.5rem;
 }
 
 main {
-    height: 90vh;
-    overflow-x: auto;
-    overflow-y: scroll;
-    padding: 0.5rem;
+    height: 85vh;
+    display: grid;
+    grid-template-columns: 25rem auto;
     line-height: 1.5;
+}
+
+.toc, .maincontent {
+    height: 85vh;
+    overflow: auto;
     padding-bottom: 3rem;
 }
 
-.heading, .heading code {
+.toc {
+    white-space: nowrap;
+}
+
+.toc .source {
+    display: none;
+}
+
+.toc h1 {
+    padding-left: 1rem;
+}
+
+.toc h2 {
+    padding-left: 2rem;
+}
+
+.toc h3 {
+    padding-left: 3rem;
+}
+
+.toc h4 {
+    padding-left: 4rem;
+}
+
+.toc h5 {
+    padding-left: 5rem;
+}
+
+.toc h6 {
+    padding-left: 6rem;
+}
+
+.toc .command {
+    padding-left: 8rem;
+}
+
+.toc .aftercommand {
+    padding-left: 10rem;
+}
+
+.toc a {
+    text-decoration: none;
+}
+
+.heading, .toc a {
     font-size: inherit;
     color: blue;
     font-weight: 500;
 }
 
-.content {
-    padding-left: 2rem;
-}
-
-h4[class~="command"] code, h5[class~="command"] code, h6[class~="command"] code {
+.heading code {
     color: darkcyan;
 }
 
-h4[class~="command"] {
-    padding-left: 10rem;
+button {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    border: none;
+    border-radius: 50%;
 }
 
-h4[class~="command"] + .content {
-    padding-left: 12rem;
+.maincontent {
+    padding-left: 0.5rem;
 }
 
-h5[class~="command"] {
-    padding-left: 8rem;
+.maincontent .content {
+    padding-left: 1.5rem;
 }
 
-h5[class~="command"] + .content {
-    padding-left: 10rem;
-}
-
-h6[class~="command"] {
-    padding-left: 6rem;
-}
-
-h6[class~="command"] + .content {
-    padding-left: 8rem;
-}
-
-.content > p, .content > pre, .content > ul {
-    display: none;
-}
-
-.content > .heading {
-    display: none;
-}
-
-.source, .showheadings, .showall, .hideall {
+.source, .showall{
     font-size: 60%;
     color: black;
     font-style: italic;
     margin-right: 0.5rem;
 }
 
+.headingindex {
+    font-size: 80%;
+    color: black;
+}
+
+.command .headingindex, .aftercommand .headingindex {
+    display: none;
+}
+
 pre {
-    padding-left: -10rem;
+    padding-left: -30rem;
 }
 
 p, .heading, li, pre {
     padding-bottom: 0.75rem;
 }
 
+/*
 .content h5 {
     display: block;
 }
+*/
 
 code {
     color: brown;

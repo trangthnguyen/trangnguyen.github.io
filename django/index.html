@@ -12,15 +12,20 @@
 	<body>
         
         <header>
-            <p>Disclaimer: Hi there! This is my personal github website, where I keep notes of various things that I am interested in. They may also be useful for you. However, please remember you use them at your own risk. I shall not be responsible for the accuracy of the information on the website or any consequences that you may encounter from using the information.</p>
+            <p id="disclaimer">Disclaimer: Hi there! This is my personal github website, where I keep notes of various things that I am interested in. They may also be useful for you. However, please remember you use them at your own risk. I shall not be responsible for the accuracy of the information on the website or any consequences that you may encounter from using the information.</p>
+            
+            <p>Below is the summary of Django documentation. I find the <a href="https://docs.djangoproject.com/en/3.1/">official documentation</a> a bit difficult to follow so I summarize the parts that I need in my own way.</p>
         </header>
         
         <main>
-        <div>Below is the summary of Django documentation. I find the <a href="https://docs.djangoproject.com/en/3.1/">official documentation</a> a bit difficult to follow so I summarize the parts that I need in my own way.</div>
+        
+        <div class="toc">
             
-		<div>
+        </div>
+            
+		<div class="maincontent">
 			<h1 class="heading">
-                <a id="models-and-databases">Models and databases</a>
+                <span id="Models-and-databases">Models and databases</span>
                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/topics/db/">Source</a></span>
             </h1>
 			<div class="content">
@@ -28,7 +33,7 @@
 				<p>A model is the single, definitive source of data about your data. It contains the essential fields and behaviors of the data you’re storing. Generally, each model maps to a single database table.</p>
                 
                 <h2 class="heading">
-                    <a id="creating-models">Creating models</a>
+                    <span id="Creating-models">Creating models</span>
                     <span class="source"><a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Models">Source</a></span>
                 </h2>
                 
@@ -61,7 +66,7 @@
                     </code></pre>
                     
                     <h3 class="heading">
-                        <a id="fields">Fields</a>
+                        <span id="Fields">Fields</span>
                         <span class="source"><a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Models">Source 1</a> <a href="https://docs.djangoproject.com/en/3.1/topics/db/models/#fields">Source 2</a></span>
                     </h3>
                     
@@ -78,7 +83,7 @@
                         <p>The order that fields are declared will affect their default order if a model is rendered in a form (e.g. in the Admin site), though this may be overridden.</p>
                         
                         <h4 class="heading">
-                            Field types
+                            <span id="Field-types">Field types</span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/topics/db/models/#field-types">Source</a></span>
                         </h4>
                         
@@ -95,7 +100,7 @@
                             <p>Django ships with dozens of built-in field types; you can find the complete list in the <a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#model-field-types">model field reference</a>.</p>
                             
                             <h5 class="heading command">
-                                <code>AutoField</code>
+                                <span id="AutoField"><code>AutoField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#autofield">Source</a></span>
                             </h5>
                             
@@ -106,7 +111,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>BigAutoField</code>
+                                <span id="BigAutoField"><code>BigAutoField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#bigautofield">Source</a></span>
                             </h5>
                             
@@ -117,7 +122,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>SmallAutoField</code>
+                                <span id="SmallAutoField"><code>SmallAutoField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#smallautofield">Source</a></span>
                             </h5>
                             
@@ -128,7 +133,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>UUIDField</code>
+                                <span id="UUIDField"><code>UUIDField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#uuidfield">Source</a></span>
                             </h5>
                             
@@ -139,7 +144,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>BinaryField</code>
+                                <span id="BinaryField"><code>BinaryField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#binaryfield">Source</a></span>
                             </h5>
                             
@@ -150,7 +155,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>BooleanField</code>
+                                <span id="BooleanField"><code>BooleanField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#booleanfield">Source</a></span>
                             </h5>
                             
@@ -161,7 +166,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>NullBooleanField</code>
+                                <span id="NullBooleanField"><code>NullBooleanField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#nullbooleanfield">Source</a></span>
                             </h5>
                             
@@ -171,14 +176,14 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <a id="charfield"><code>CharField</code></a>
+                                <span id="CharField"><code>CharField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#charfield">Source</a></span>
                             </h5>
                             
                             <div class="content">
                                 <p><code>class CharField(max_length=None, **options)</code></p>
                                 
-                                <p> A string field, for small- to large-sized strings. For large amounts of text, use <a href="#textfield"><code>TextField</code></a>.</p>
+                                <p> A string field, for small- to large-sized strings. For large amounts of text, use <a href="#TextField"><code>TextField</code></a>.</p>
                                 
                                 <p>The default form widget for this field is a <code>TextInput</code>.</p>
                                 
@@ -193,7 +198,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <a id="textfield"><code>TextField</code></a>
+                                <span id="TextField"><code>TextField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#textfield">Source</a></span>
                             </h5>
                             
@@ -206,7 +211,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>EmailField</code>
+                                <span id="EmailField"><code>EmailField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#emailfield">Source</a></span>
                             </h5>
                             
@@ -217,7 +222,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>SlugField</code>
+                                <span id="SlugField"><code>SlugField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#slugfield">Source</a></span>
                             </h5>
                             
@@ -228,7 +233,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <a id="urlfield"><code>URLField</code></a>
+                                <span id="URLField"><code>URLField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#urlfield">Source</a></span>
                             </h5>
                             
@@ -243,7 +248,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>GenericIPAddressField</code>
+                                <span id="GenericIPAddressField"><code>GenericIPAddressField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#genericipaddressfield">Source</a></span>
                             </h5>
                             
@@ -254,7 +259,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <a id="datefield"><code>DateField</code></a>
+                                <span id="DateField"><code>DateField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#datefield">Source</a></span>
                             </h5>
                             
@@ -298,7 +303,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <a id="datetimefield"><code>DateTimeField</code></a>
+                                <span id="DateTimeField"><code>DateTimeField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#datetimefield">Source</a></span>
                             </h5>
                             
@@ -312,7 +317,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>TimeField</code>
+                                <span id="TimeField"><code>TimeField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#timefield">Source</a></span>
                             </h5>
                             
@@ -323,7 +328,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>DurationField</code>
+                                <span id="DurationField"><code>DurationField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#durationfield">Source</a></span>
                             </h5>
                             
@@ -334,7 +339,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <a id="integerfield"><code>IntegerField</code></a>
+                                <span id="IntegerField"><code>IntegerField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#integerfield">source</a></span>
                             </h5>
                             
@@ -349,7 +354,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>BigIntegerField</code>
+                                <span id="BigIntegerField"><code>BigIntegerField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#bigintegerfield">Source</a></span>
                             </h5>
                             
@@ -360,7 +365,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>SmallIntegerField</code>
+                                <span id="SmallIntegerField"><code>SmallIntegerField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#smallintegerfield">Source</a></span>
                             </h5>
                             
@@ -371,29 +376,29 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <a id="positiveintegerfield"><code>PositiveIntegerField</code></a>
+                                <span id="PositiveIntegerField"><code>PositiveIntegerField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#positiveintegerfield">Source</a></span>
                             </h5>
                             
                             <div class="content">
                                 <p><code>class PositiveIntegerField(**options)</code></p>
                                 
-                                <p> Like an <a href="#integerfield"><code>IntegerField</code></a>, but must be either positive or zero (0). Values from 0 to 2147483647 are safe in all databases supported by Django. The value 0 is accepted for backward compatibility reasons.</p>
+                                <p> Like an <a href="#IntegerField"><code>IntegerField</code></a>, but must be either positive or zero (0). Values from 0 to 2147483647 are safe in all databases supported by Django. The value 0 is accepted for backward compatibility reasons.</p>
                             </div>
                             
                             <h5 class="heading command">
-                                <a id="positivesmallintegerfield"><code>PositiveSmallIntegerField</code></a>
+                                <span id="PositiveSmallIntegerField"><code>PositiveSmallIntegerField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#positivesmallintegerfield">Source</a></span>
                             </h5>
                             
                             <div class="content">
                                 <p><code>class PositiveSmallIntegerField(**options)</code></p>
                                 
-                                <p> Like a <a href="#positiveintegerfield"><code>PositiveIntegerField</code></a>, but only allows values under a certain (database-dependent) point. Values from 0 to 32767 are safe in all databases supported by Django.</p>
+                                <p> Like a <a href="#PositiveIntegerField"><code>PositiveIntegerField</code></a>, but only allows values under a certain (database-dependent) point. Values from 0 to 32767 are safe in all databases supported by Django.</p>
                             </div>
                             
                             <h5 class="heading command">
-                                <code>DecimalField</code>
+                                <span id="DecimalField"><code>DecimalField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#decimalfield">Source</a></span>
                             </h5>
                             
@@ -434,7 +439,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <a id="floatfield"><code>FloatField</code></a>
+                                <span id="FloatField"><code>FloatField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#floatfield">Source</a></span>
                             </h5>
                             
@@ -449,7 +454,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>FileField</code>
+                                <span id="FileField"><code>FileField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#filefield">Source</a></span>
                             </h5>
                             
@@ -460,7 +465,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>FilePathField</code>
+                                <span id="FilePathField"><code>FilePathField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#filepathfield">Source</a></span>
                             </h5>
                             
@@ -471,7 +476,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>ImageField</code>
+                                <span id="ImageField"><code>ImageField</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#imagefield">Source</a></span>
                             </h5>
                             
@@ -485,7 +490,7 @@
                         </div>
                         
                         <h4 class="heading">
-                            Field options
+                            <span id="Field-options">Field options</span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/topics/db/models/#field-options">Source</a></span>
                         </h4>
                         
@@ -495,7 +500,7 @@
                             <p>The following arguments are available to all field types. All are optional. They’re fully explained in the <a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#common-model-field-options">reference</a></p>
 
                             <h5 class="heading command">
-                                <code>null</code>
+                                <span id="null"><code>null</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#null">Source</a></span>
                             </h5>
 
@@ -512,7 +517,7 @@
                             </div>
 
                             <h5 class="heading command">
-                                <code>blank</code>
+                                <span id="blank"><code>blank</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#blank">Source</a></span>
                             </h5>
 
@@ -527,7 +532,7 @@
                             </div>
 
                             <h5 class="heading command">
-                                <a id="choices"><code>choices</code></a>
+                                <span id="choices"><code>choices</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#choices">Source</a></span>
                             </h5>
 
@@ -622,8 +627,8 @@
                                     <li><a id="blanklabel"></a>Unless <code>blank=False</code> is set on the field along with a default then a label containing <code>"---------"</code> will be rendered with the select box. To override this behavior, add a tuple to choices containing <code>None</code>; e.g. <code>(None, 'Your String For Display')</code>. Alternatively, you can use an empty string instead of <code>None</code> where this makes sense - such as on a <code>CharField</code>.</li>
                                 </ul>
                                 
-                                <h6 class="heading">
-                                    Enumeration types
+                                <h6 class="heading aftercommand">
+                                    <span id="Enumeration-types">Enumeration types</span>
                                     <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#enumeration-types">Source</a></span>
                                 </h6>
                                 
@@ -731,7 +736,7 @@
                             </div>
 
                             <h5 class="heading command">
-                                <a id="dbcolumn"><code>db_column</code></a>
+                                <span id="db_column"><code>db_column</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#db-column">Source</a></span>
                             </h5>
 
@@ -744,7 +749,7 @@
                             </div>
 
                             <h5 class="heading command">
-                                <a id="dbindex"><code>db_index</code></a>
+                                <span id="db_index"><code>db_index</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#db-index">Source</a></span>
                             </h5>
 
@@ -755,7 +760,7 @@
                             </div>
 
                             <h5 class="heading command">
-                                <code>db_tablespace</code>
+                                <span id="db_tablespace"><code>db_tablespace</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#db-tablespace">Source</a></span>
                             </h5>
 
@@ -766,7 +771,7 @@
                             </div>
 
                             <h5 class="heading command">
-                                <code>default</code>
+                                <span id="default"><code>default</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#default">Source</a></span>
                             </h5>
 
@@ -792,7 +797,7 @@
                             </div>
 
                             <h5 class="heading command">
-                                <code>editable</code>
+                                <span id="editable"><code>editable</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#editable">Source</a></span>
                             </h5>
 
@@ -803,7 +808,7 @@
                             </div>
 
                             <h5 class="heading command">
-                                <code>error_messages</code>
+                                <span id="error_messages"><code>error_messages</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#error-messages">Source</a></span>
                             </h5>
 
@@ -814,7 +819,7 @@
                             </div>
 
                             <h5 class="heading command">
-                                <code>help_text</code>
+                                <span id="help_text"><code>help_text</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#help-text">Source</a></span>
                             </h5>
 
@@ -835,7 +840,7 @@
                             </div>
 
                             <h5 class="heading command">
-                                <code>primary_key</code>
+                                <span id="primary_key"><code>primary_key</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#primary-key">Source</a></span>
                             </h5>
 
@@ -865,7 +870,7 @@
                             </div>
 
                             <h5 class="heading command">
-                                <code>unique</code>
+                                <span id="unique"><code>unique</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#unique">Source</a></span>
                             </h5>
 
@@ -876,7 +881,7 @@
                             </div>
 
                             <h5 class="heading command">
-                                <code>unique_for_date</code>
+                                <span id="unique_for_date"><code>unique_for_date</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#unique-for-date">Source</a></span>
                             </h5>
 
@@ -887,7 +892,7 @@
                             </div>
 
                             <h5 class="heading command">
-                                <code>unique_for_month</code>
+                                <span id="unique_for_month"><code>unique_for_month</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#unique-for-month">Source</a></span>
                             </h5>
 
@@ -898,7 +903,7 @@
                             </div>
 
                             <h5 class="heading command">
-                                <code>unique_for_year</code>
+                                <span id="unique_for_year"><code>unique_for_year</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#unique-for-year">Source</a></span>
                             </h5>
 
@@ -909,7 +914,7 @@
                             </div>
 
                             <h5 class="heading command">
-                                <code>verbose_name</code>
+                                <span id="verbose_name"><code>verbose_name</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#verbose-name">Source</a></span>
                             </h5>
 
@@ -920,7 +925,7 @@
                             </div>
 
                             <h5 class="heading command">
-                                <code>validators</code>
+                                <span id="validators"><code>validators</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#validators">Source</a></span>
                             </h5>
 
@@ -932,7 +937,7 @@
                         </div>
                         
                         <h4 class="heading">
-                            Automatic primary key fields
+                            <span id="Automatic-primary-key-fields">Automatic primary key fields</span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/topics/db/models/#automatic-primary-key-fields">Source</a></span>
                         </h4>
                     
@@ -951,7 +956,7 @@
                         </div>
                         
                         <h4 class="heading">
-                            Verbose field names
+                            <span id="Verbose-field-names">Verbose field names</span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/topics/db/models/#verbose-field-names">Source</a></span>
                         </h4>
                         
@@ -987,18 +992,18 @@
                         </div>
                         
                         <h4 class="heading">
-                            Field name restrictions
+                            <span id="Field-name-restrictions">Field name restrictions</span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/topics/db/models/#field-name-restrictions">Source</a></span>
                         </h4>
                         
                         <h4 class="heading">
-                            Custom field types
+                            <span id="Custom-field-types">Custom field types</span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/topics/db/models/#custom-field-types">Source</a></span>
                         </h4>
                     </div>
                     
                     <h3 class="heading">
-                        Relationships
+                        <span id="Relationships">Relationships</span>
                         <span class="source"><a href="https://docs.djangoproject.com/en/3.1/topics/db/models/#relationships">Source 1</a></span>
                         <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#module-django.db.models.fields.related">Source 2</a></span>
                     </h3>
@@ -1012,7 +1017,7 @@
                         </ul>
                         
                         <h4 class="heading">
-                            Many-to-one relationships
+                            <span id="Many-to-one-relationships">Many-to-one relationships</span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/topics/db/models/#many-to-one-relationships">Source 1</a></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#foreignkey">Source 2</a></span>
                         </h4>
@@ -1102,15 +1107,15 @@
                                     <p>This sort of reference, called a lazy relationship, can be useful when resolving circular import dependencies between two applications.</p>
                                 </ul>
 
-                                <li>A database index is automatically created on the <code>ForeignKey</code>. You can disable this by setting <a href="#dbindex"><code>db_index</code></a> to <code>False</code>. You may want to avoid the overhead of an index if you are creating a foreign key for consistency rather than joins, or if you will be creating an alternative index like a partial or multiple column index.</li>
+                                <li>A database index is automatically created on the <code>ForeignKey</code>. You can disable this by setting <a href="#db_index"><code>db_index</code></a> to <code>False</code>. You may want to avoid the overhead of an index if you are creating a foreign key for consistency rather than joins, or if you will be creating an alternative index like a partial or multiple column index.</li>
 
-                                <li><em>Database representation</em>: Behind the scenes, Django appends "<code>_id</code>" to the field name to create its database column name. In the above example, the database table for the <code>Car</code> model will have a <code>manufacturer_id</code> column. (You can change this explicitly by specifying <a href="#dbcolumn"><code>db_column</code></a>) However, your code should never have to deal with the database column name, unless you write custom SQL. You’ll always deal with the field names of your model object.</li>
+                                <li><em>Database representation</em>: Behind the scenes, Django appends "<code>_id</code>" to the field name to create its database column name. In the above example, the database table for the <code>Car</code> model will have a <code>manufacturer_id</code> column. (You can change this explicitly by specifying <a href="#db_column"><code>db_column</code></a>) However, your code should never have to deal with the database column name, unless you write custom SQL. You’ll always deal with the field names of your model object.</li>
                             </ul>
                             
                             <p><code>ForeignKey</code> accepts other arguments that define the details of how the relation works.</p>
                             
                             <h5 class="heading command">
-                                <code>ForeignKey.on_delete</code>
+                                <span id="ForeignKey-on_delete"><code>ForeignKey.on_delete</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.ForeignKey.on_delete">Source</a></span>
                             </h5>
                             
@@ -1192,7 +1197,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <a id="foreignkeylimitchoicesto"><code>ForeignKey.limit_choices_to</code></a>
+                                <span id="ForeignKey-limit_choices_to"><code>ForeignKey.limit_choices_to</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.ForeignKey.limit_choices_to">Source</a></span>
                             </h5>
                             
@@ -1221,7 +1226,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <a id="foreignkeyrelatedname"><code>ForeignKey.related_name</code></a>
+                                <span id="ForeignKey-related_name"><code>ForeignKey.related_name</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.ForeignKey.related_name">Source</a></span>
                             </h5>
                             
@@ -1239,7 +1244,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <a id="foreignkeyrelatedqueryname"><code>ForeignKey.related_query_name</code></a>
+                                <span id="ForeignKey-related_query_name"><code>ForeignKey.related_query_name</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.ForeignKey.related_query_name">Source</a></span>
                             </h5>
                             
@@ -1264,7 +1269,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>ForeignKey.to_field</code>
+                                <span id="ForeignKey-to_field"><code>ForeignKey.to_field</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.ForeignKey.to_field">Source</a></span>
                             </h5>
                             
@@ -1273,7 +1278,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>ForeignKey.db_constraint</code>
+                                <span id="ForeignKey-db_constraint"><code>ForeignKey.db_constraint</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.ForeignKey.db_constraint">Source</a></span>
                             </h5>
                             
@@ -1288,7 +1293,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>ForeignKey.swappable</code>
+                                <span id="ForeignKey-swappable"><code>ForeignKey.swappable</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.ForeignKey.swappable">Source</a></span>
                             </h5>
                             
@@ -1304,7 +1309,7 @@
                         </div>
                         
                         <h4 class="heading">
-                            Many-to-many relationships
+                            <span id="Many-to-many-relationships">Many-to-many relationships</span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/topics/db/models/#many-to-many-relationships">Source 1</a></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#manytomanyfield">Source 2</a></span>
                         </h4>
@@ -1342,36 +1347,36 @@
                             <p><code>ManyToManyField</code> accepts an extra set of arguments – all optional – that control how the relationship functions.</p>
                             
                             <h5 class="heading command">
-                                <code>ManyToManyField.related_name</code>
+                                <span id="ManyToManyField-related_name"><code>ManyToManyField.related_name</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.ManyToManyField.related_name">Source</a></span>
                             </h5>
                             
                             <div class="content">
-                                <p>Same as <a href="#foreignkeyrelatedname"><code>ForeignKey.related_name</code></a>.</p>
+                                <p>Same as <a href="#ForeignKey.related_name"><code>ForeignKey.related_name</code></a>.</p>
                             </div>
                             
                             <h5 class="heading command">
-                                <code>ManyToManyField.related_query_name</code>
+                                <span id="ManyToManyField-related_query_name"><code>ManyToManyField.related_query_name</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.ManyToManyField.related_query_name">Source</a></span>
                             </h5>
                             
                             <div class="content">
-                                <p>Same as <a href="#foreignkeyrelatedqueryname"><code>ForeignKey.related_query_name</code></a>.</p>
+                                <p>Same as <a href="#ForeignKey.related_query_name"><code>ForeignKey.related_query_name</code></a>.</p>
                             </div>
                             
                             <h5 class="heading command">
-                                <code>ManyToManyField.limit_choices_to</code>
+                                <span id="ManyToManyField-limit_choices_to"><code>ManyToManyField.limit_choices_to</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.ManyToManyField.limit_choices_to">Source</a></span>
                             </h5>
                             
                             <div class="content">
-                                <p>Same as <a href="#foreignkeylimitchoicesto"><code>ForeignKey.limit_choices_to</code></a>.</p>
+                                <p>Same as <a href="#ForeignKey.limit_choices_to"><code>ForeignKey.limit_choices_to</code></a>.</p>
                                 
-                                <p><code>limit_choices_to</code> has no effect when used on a <code>ManyToManyField</code> with a custom intermediate table specified using the <a href="#manytomanyfieldthrough"><code>through</code></a> parameter.</p>
+                                <p><code>limit_choices_to</code> has no effect when used on a <code>ManyToManyField</code> with a custom intermediate table specified using the <a href="#ManyToManyField.through"><code>through</code></a> parameter.</p>
                             </div>
                             
                             <h5 class="heading command">
-                                <code>ManyToManyField.symmetrical</code>
+                                <span id="ManyToManyField-symmetrical"><code>ManyToManyField.symmetrical</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.ManyToManyField.symmetrical">Source</a></span>
                             </h5>
                             
@@ -1392,15 +1397,15 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <a id="manytomanyfieldthrough"><code>ManyToManyField.through</code></a>
+                                <span id="ManyToManyField-through"><code>ManyToManyField.through</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.ManyToManyField.through">Source</a></span>
                             </h5>
                             
                             <div class="content">
                                 <p>Django will automatically generate a table to manage many-to-many relationships. However, if you want to manually specify the intermediary table, you can use the through option to specify the Django model that represents the intermediate table that you want to use.</p>
                                 
-                                <h6 class="heading">
-                                    Explicit through model
+                                <h6 class="heading aftercommand">
+                                    <span id="Explicit-through-model">Explicit through model</span>
                                 </h6>
                                 
                                 <div class="content">
@@ -1533,8 +1538,8 @@
                                     </ul>
                                 </div>
                                 
-                                <h6 class="heading">
-                                    Implicit through model
+                                <h6 class="heading aftercommand">
+                                    <span id="Implicit-through-model">Implicit through model</span>
                                 </h6>
                                     
                                 <div class="content">
@@ -1563,7 +1568,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>ManyToManyField.through_fields</code>
+                                <span id="ManyToManyField-through_fields"><code>ManyToManyField.through_fields</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.ManyToManyField.through_fields">Source</a></span>
                             </h5>
                             
@@ -1602,7 +1607,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>ManyToManyField.db_table</code>
+                                <span id="ManyToManyField-db_table"><code>ManyToManyField.db_table</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.ManyToManyField.db_table">Source</a></span>
                             </h5>
                             
@@ -1611,7 +1616,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>ManyToManyField.db_constraint</code>
+                                <span id="ManyToManyField-db_constraint"><code>ManyToManyField.db_constraint</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.ManyToManyField.db_constraint">Source</a></span>
                             </h5>
                             
@@ -1626,7 +1631,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>ManyToManyField.swappable</code>
+                                <span id="ManyToManyField-swappable"><code>ManyToManyField.swappable</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.ManyToManyField.swappable">Source</a></span>
                             </h5>
 
@@ -1647,7 +1652,7 @@
                         </div>
                         
                         <h4 class="heading">
-                            One-to-one relationships
+                            <span id="One-to-one-relationships">One-to-one relationships</span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/topics/db/models/#one-to-one-relationships">Source 1</a></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#onetoonefield">Source 2</a></span>
                         </h4>
@@ -1679,7 +1684,7 @@
                             <p>Additionally, <code>OneToOneField</code> accepts all of the extra arguments accepted by <code>ForeignKey</code>, plus one extra argument: <code>OneToOneField.parent_link</code></p>
                             
                             <h5 class="heading command">
-                                <code>OneToOneField.related_name</code>
+                                <span id="OneToOneField-related_name"><code>OneToOneField.related_name</code></span>
                             </h5>
                             
                             <div class="content">
@@ -1721,7 +1726,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>OneToOneField.parent_link</code>
+                                <span id="OneToOneField-parent_link"><code>OneToOneField.parent_link</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/fields/#django.db.models.OneToOneField.parent_link">Source</a></span>
                             </h5>
                             
@@ -1731,7 +1736,7 @@
                         </div>
                         
                         <h4 class="heading">
-                            Models across files
+                            <span id="Models-across-files">Models across files</span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/topics/db/models/#models-across-files">Source</a></span>
                         </h4>
                     
@@ -1753,7 +1758,7 @@
                     </div>
                     
                     <h3 class="heading">
-                        Meta options
+                        <span id="Meta-options">Meta options</span>
                         <span class="source"><a href="https://docs.djangoproject.com/en/3.1/topics/db/models/#meta-options">Source</a></span>
                     </h3>
                     
@@ -1773,7 +1778,7 @@
                         <p>A complete list of all possible Meta options can be found in the <a href="https://docs.djangoproject.com/en/3.1/ref/models/options/">model option reference</a>.</p>
                         
                         <h4 class="heading command">
-                            <code>abstract</code>
+                            <span id="abstract"><code>abstract</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#abstract">Source</a></span>
                         </h4>
                         
@@ -1784,7 +1789,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>app_label</code>
+                            <span id="app_label"><code>app_label</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#app-label">Source</a></span>
                         </h4>
                         
@@ -1798,7 +1803,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>base_manager_name</code>
+                            <span id="base_manager_name"><code>base_manager_name</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#base-manager-name">Source</a></span>
                         </h4>
                         
@@ -1809,7 +1814,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>db_table</code>
+                            <span id="db_table"><code>db_table</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#db-table">Source</a></span>
                         </h4>
                         
@@ -1823,7 +1828,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>db_tablespace</code>
+                            <span id="Options-db_tablespace"><code>db_tablespace</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#db-tablespace">Source</a></span>
                         </h4>
                         
@@ -1834,7 +1839,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>default_manager_name</code>
+                            <span id="default_manager_name"><code>default_manager_name</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#default-manager-name">Source</a></span>
                         </h4>
                         
@@ -1845,7 +1850,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>default_related_name</code>
+                            <span id="default_related_name"><code>default_related_name</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#default-related-name">Source</a></span>
                         </h4>
                         
@@ -1856,7 +1861,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>get_latest_by</code>
+                            <span id="get_latest_by"><code>get_latest_by</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#get-latest-by">Source</a></span>
                         </h4>
                         
@@ -1874,7 +1879,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>managed</code>
+                            <span id="managed"><code>managed</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#managed">Source</a></span>
                         </h4>
                         
@@ -1887,7 +1892,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>order_with_respect_to</code>
+                            <span id="order_with_respect_to"><code>order_with_respect_to</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#order-with-respect-to">Source</a></span>
                         </h4>
                         
@@ -1912,7 +1917,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>ordering</code>
+                            <span id="ordering"><code>ordering</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#ordering">Source</a></span>
                         </h4>
                         
@@ -1952,7 +1957,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>permissions</code>
+                            <span id="permissions"><code>permissions</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#permissions">Source</a></span>
                         </h4>
                         
@@ -1968,7 +1973,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>default_permissions</code>
+                            <span id="default_permissions"><code>default_permissions</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#default-permissions">Source</a></span>
                         </h4>
                         
@@ -1979,7 +1984,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>proxy</code>
+                            <span id="proxy"><code>proxy</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#proxy">Source</a></span>
                         </h4>
                         
@@ -1990,7 +1995,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>required_db_features</code>
+                            <span id="required_db_features"><code>required_db_features</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#required-db-features">Source</a></span>
                         </h4>
                         
@@ -2001,7 +2006,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>required_db_vendor</code>
+                            <span id="required_db_vendor"><code>required_db_vendor</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#required-db-vendor">Source</a></span>
                         </h4>
                         
@@ -2012,7 +2017,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>select_on_save</code>
+                            <span id="select_on_save"><code>select_on_save</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#select-on-save">Source</a></span>
                         </h4>
                         
@@ -2023,7 +2028,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>indexes</code>
+                            <span id="indexes"><code>indexes</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#indexes">Source</a></span>
                         </h4>
                         
@@ -2047,7 +2052,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>unique_together</code>
+                            <span id="unique_together"><code>unique_together</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#unique-together">Source</a></span>
                         </h4>
                         
@@ -2063,7 +2068,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>index_together</code>
+                            <span id="index_together"><code>index_together</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#index-together">Source</a></span>
                         </h4>
                         
@@ -2081,7 +2086,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>constraints</code>
+                            <span id="constraints"><code>constraints</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#constraints">Source</a></span>
                         </h4>
                         
@@ -2103,7 +2108,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>verbose_name</code>
+                            <span id="Options-verbose_name"><code>verbose_name</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#verbose-name">Source</a></span>
                         </h4>
                         
@@ -2119,7 +2124,7 @@
                         </div>
                         
                         <h4 class="heading command">
-                            <code>verbose_name_plural</code>
+                            <span id="verbose_name_plural"><code>verbose_name_plural</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#verbose-name-plural">Source</a></span>
                         </h4>
                         
@@ -2135,13 +2140,13 @@
                         </div>
                         
                         <h4 class="heading">
-                            Read-only <code>Meta</code> attributes
+                            <span id="Read-only-Meta-attributes">Read-only <code>Meta</code> attributes</span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#read-only-meta-attributes">Source</a></span>
                         </h4>
                         
                         <div class="content">
                             <h5 class="heading command">
-                                <code>label</code>
+                                <span id="label"><code>label</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#label">Source</a></span>
                             </h5>
                             
@@ -2152,7 +2157,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>label_lower</code>
+                                <span id="label_lower"><code>label_lower</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/options/#label-lower">Source</a></span>
                             </h5>
                             
@@ -2165,13 +2170,13 @@
                     </div>
                     
                     <h3 class="heading">
-                        Model attributes
+                        <span id="Model-attributes">Model attributes</span>
                         <span class="source"><a href="https://docs.djangoproject.com/en/3.1/topics/db/models/#model-attributes">Source</a></span>
                     </h3>
                     
                     <div class="content">
                         <h4 class="heading command">
-                            <code>objects</code>
+                            <span id="objects"><code>objects</code></span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/topics/db/models/#model-attributes">Source</a></span>
                         </h4>
                         
@@ -2183,7 +2188,7 @@
                     </div>
                     
                     <h3 class="heading">
-                        Model methods
+                        <span id="Model-methods">Model methods</span>
                         <span class="source"><a href="https://docs.djangoproject.com/en/3.1/topics/db/models/#model-methods">Source</a></span>
                     </h3>
                     
@@ -2216,19 +2221,19 @@
                         <p>The last method in this example is a property.</p>
                         
                         <h4 class="heading">
-                            List of methods automatically given to each model
+                            <span id="List-of-methods-automatically-given-to-each-model">List of methods automatically given to each model</span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/">Source</a></span>
                         </h4>
                         
                         <div class="content">
                             <h5 class="heading">
-                                Creating objects
+                                <span id="Creating-objects">Creating objects</span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#creating-objects">Source</a></span>
                             </h5>
                             
                             <div class="content">
                                 <h6 class="heading command">
-                                    <code>Model(**kwargs)</code>
+                                    <span id="Model"><code>Model(**kwargs)</code></span>
                                     <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#django.db.models.Model">Source</a></span>
                                 </h6>
                                 
@@ -2243,13 +2248,13 @@
                             </div>
                             
                             <h5 class="heading">
-                                Customizing model loading
+                                <span id="Customizing-model-loading">Customizing model loading</span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#customizing-model-loading">Source</a></span>
                             </h5>
                             
                             <div class="content">
                                 <h6 class="heading command">
-                                    <code>from_db</code>
+                                    <span id="from_db"><code>from_db</code></span>
                                     <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#django.db.models.Model.from_db">Source</a></span>
                                 </h6>
                                 
@@ -2261,7 +2266,7 @@
                             </div>
                             
                             <h5 class="heading">
-                                Refreshing objects from database
+                                <span id="Refreshing-objects-from-database">Refreshing objects from database</span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#refreshing-objects-from-database">Source</a></span>
                             </h5>
                             
@@ -2274,7 +2279,7 @@
                                 </code></pre>
                                 
                                 <h6 class="heading command">
-                                    <code>refresh_from_db</code>
+                                    <span id="refresh_from_db"><code>refresh_from_db</code></span>
                                     <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#django.db.models.Model.refresh_from_db">Source</a></span>
                                 </h6>
                                 
@@ -2285,7 +2290,7 @@
                                 </div>
                                 
                                 <h6 class="heading command">
-                                    <code>get_deferred_fields</code>
+                                    <span id="get_deferred_fields"><code>get_deferred_fields</code></span>
                                     <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#django.db.models.Model.get_deferred_fields">Source</a></span>
                                 </h6>
                                 
@@ -2297,7 +2302,7 @@
                             </div>
                             
                             <h5 class="heading">
-                                Validating objects
+                                <span id="Validating-objects">Validating objects</span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#validating-objects">Source</a></span>
                             </h5>
                             
@@ -2312,7 +2317,7 @@
                                 <p>All three steps are performed when you call a model’s <code>full_clean()</code> method. When you use a <code>ModelForm</code>, the call to <code>is_valid()</code> will perform these validation steps for all the fields that are included on the form. You should only need to call a model’s <code>full_clean()</code> method if you plan to handle validation errors yourself, or if you have excluded fields from the <code>ModelForm</code> that require validation.</p>
                                 
                                 <h6 class="heading command">
-                                    <code>full_clean</code>
+                                    <span id="full_clean"><code>full_clean</code></span>
                                     <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#django.db.models.Model.full_clean">Source</a></span>
                                 </h6>
                                 
@@ -2327,7 +2332,7 @@
                                 </div>
                                 
                                 <h6 class="heading command">
-                                    <code>clean_fields</code>
+                                    <span id="clean_fields"><code>clean_fields</code></span>
                                     <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#django.db.models.Model.clean_fields">Source</a></span>
                                 </h6>
                                 
@@ -2338,7 +2343,7 @@
                                 </div>
                                 
                                 <h6 class="heading command">
-                                    <code>clean</code>
+                                    <span id="clean"><code>clean</code></span>
                                     <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#django.db.models.Model.clean">Source</a></span>
                                 </h6>
                                 
@@ -2366,7 +2371,7 @@
                                 </div>
                                 
                                 <h6 class="heading command">
-                                    <code>validate_unique</code>
+                                    <span id="validate_unique"><code>validate_unique</code></span>
                                     <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#django.db.models.Model.validate_unique">Source</a></span>
                                 </h6>
                                 
@@ -2378,13 +2383,13 @@
                             </div>
                             
                             <h5 class="heading">
-                                Saving objects
+                                <span id="Saving-objects">Saving objects</span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#saving-objects">Source</a></span>
                             </h5>
                             
                             <div class="content">
                                 <h6 class="heading command">
-                                    <code>save</code>
+                                    <span id="save"><code>save</code></span>
                                     <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#django.db.models.Model.save">Source</a></span>
                                 </h6>
                                 
@@ -2398,7 +2403,7 @@
                                 </div>
                                 
                                 <h6 class="heading">
-                                    Auto-incrementing primary keys
+                                    <span id="Auto-incrementing-primary-keys">Auto-incrementing primary keys</span>
                                     <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#auto-incrementing-primary-keys">Source</a></span>
                                 </h6>
                                 
@@ -2414,7 +2419,7 @@
                                     <p>There’s no way to tell what the value of an ID will be before you call <code>save()</code>, because that value is calculated by your database, not by Django.</p>
                                     
                                     <h6 class="heading">
-                                        The pk property
+                                        <span id="The-pk-property">The pk property</span>
                                         <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#the-pk-property">Source</a></span>
                                     </h6>
 
@@ -2425,7 +2430,7 @@
                                     </div>
                                     
                                     <h6 class="heading">
-                                        Explicitly specifying auto-primary-key values
+                                        <span id="Explicitly-specifying-auto-primary-key-values">Explicitly specifying auto-primary-key values</span>
                                         <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#explicitly-specifying-auto-primary-key-values">Source</a></span>
                                     </h6>
                                     
@@ -2443,7 +2448,7 @@
                                 </div>
                                 
                                 <h6 class="heading">
-                                    What happens when you save?
+                                    <span id="What-happens-when-you-save">What happens when you save?</span>
                                     <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#what-happens-when-you-save">Source</a></span>
                                 </h6>
                                 
@@ -2468,7 +2473,7 @@
                                 </div>
                                 
                                 <h6 class="heading">
-                                    How Django knows to UPDATE vs. INSERT
+                                    <span id="How-Django-knows-to-UPDATE-vs-INSERT">How Django knows to UPDATE vs. INSERT</span>
                                     <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#how-django-knows-to-update-vs-insert">Source</a></span>
                                 </h6>
                                 
@@ -2488,7 +2493,7 @@
                                     <p>The one gotcha here is that you should be careful not to specify a primary-key value explicitly when saving new objects, if you cannot guarantee the primary-key value is unused.</p>
                                     
                                     <h6 class="heading">
-                                        Forcing an INSERT or UPDATE
+                                        <span id="Forcing-an-INSERT-or-UPDATE">Forcing an INSERT or UPDATE</span>
                                         <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#forcing-an-insert-or-update">Source</a></span>
                                     </h6>
                                     
@@ -2502,7 +2507,7 @@
                                 </div>
                                 
                                 <h6 class="heading">
-                                    Updating attributes based on existing fields
+                                    <span id="Updating-attributes-based-on-existing-fields">Updating attributes based on existing fields</span>
                                     <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#updating-attributes-based-on-existing-fields">Source</a></span>
                                 </h6>
                                 
@@ -2530,7 +2535,7 @@
                                 </div>
                                 
                                 <h6 class="heading">
-                                    Specifying which fields to save
+                                    <span id="Specifying-which-fields-to-save">Specifying which fields to save</span>
                                     <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#specifying-which-fields-to-save">Source</a></span>
                                 </h6>
                                 
@@ -2546,13 +2551,13 @@
                             </div>
                             
                             <h5 class="heading">
-                                Deleting objects
+                                <span id="Deleting-objects">Deleting objects</span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#deleting-objects">Source</a></span>
                             </h5>
                             
                             <div class="content">
                                 <h6 class="heading command">
-                                    <code>delete</code>
+                                    <span id="delete"><code>delete</code></span>
                                     <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#django.db.models.Model.delete">Source</a></span>
                                 </h6>
                                 
@@ -2568,19 +2573,19 @@
                             </div>
                             
                             <h5 class="heading">
-                                Pickling objects
+                                <span id="Pickling-objects">Pickling objects</span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#pickling-objects">Source</a></span>
                             </h5>
                         </div>
                         
                         <h4 class="heading">
-                            A few object methods have special purposes
+                            <span id="A-few-object-methods-have-special-purposes">A few object methods have special purposes</span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#other-model-instance-methods">Source</a></span>
                         </h4>
                         
                         <div class="content">
                             <h5 class="heading command">
-                                <code>__str__</code>
+                                <span id="__str__"><code>__str__</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#str">Source</a></span>
                             </h5>
                             
@@ -2601,7 +2606,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>__eq__</code>
+                                <span id="__eq__"><code>__eq__</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#eq">Source</a></span>
                             </h5>
                             
@@ -2612,7 +2617,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>__hash__</code>
+                                <span id="__hash__"><code>__hash__</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#hash">Source</a></span>
                             </h5>
                             
@@ -2623,7 +2628,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>get_absolute_url</code>
+                                <span id="get_absolute_url"><code>get_absolute_url</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#get-absolute-url">Source 1</a></span>
                                 <span class="source"><a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Models">Source 2</a></span>
                             </h5>
@@ -2645,13 +2650,13 @@
                         </div>
                         
                         <h4 class="heading">
-                            Extra instance methods
+                            <span id="Extra-instance-methods">Extra instance methods</span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#extra-instance-methods">Source</a></span>
                         </h4>
                         
                         <div class="content">
                             <h5 class="heading command">
-                                <code>get_FOO_display</code>
+                                <span id="get_FOO_display"><code>get_FOO_display</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#django.db.models.Model.get_FOO_display">Source</a></span>
                             </h5>
 
@@ -2662,7 +2667,7 @@
                             </div>
                             
                             <h5 class="heading command">
-                                <code>get_next_by_FOO</code> and <code>get_previous_by_FOO</code>
+                                <span id="get_next_by_FOO-get_previous_by_FOO"><code>get_next_by_FOO</code> and <code>get_previous_by_FOO</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#django.db.models.Model.get_next_by_FOO">Source</a></span>
                             </h5>
                             
@@ -2676,13 +2681,13 @@
                         </div>
                         
                         <h4 class="heading">
-                            Other attributes
+                            <span id="Other-attributes">Other attributes</span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#other-attributes">Source</a></span>
                         </h4>
                         
                         <div class="content">
                             <h5 class="heading command">
-                                <code>_state</code>
+                                <span id="_state"><code>_state</code></span>
                                 <span class="source"><a href="https://docs.djangoproject.com/en/3.1/ref/models/instances/#state">Source</a></span>
                             </h5>
                             
@@ -2698,7 +2703,7 @@
                         </div>
                     
                         <h4 class="heading">
-                            Overriding predefined model methods
+                            <span id="Overriding-predefined-model-methods">Overriding predefined model methods</span>
                             <span class="source"><a href="https://docs.djangoproject.com/en/3.1/topics/db/models/#overriding-predefined-model-methods">Source</a></span>
                         </h4>
 

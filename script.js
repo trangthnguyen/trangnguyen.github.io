@@ -1,136 +1,260 @@
-function shownothing(heading) {
-    heading.querySelector(':scope > .hideall').style.display = 'none';
-    let content = heading.nextElementSibling;
+function addheadingindex(heading, index) {
+    var headingindex = document.createElement('span');
+    headingindex.classList.add('headingindex');
+    headingindex.textContent = index + ' ';
+    heading.querySelector('span').prepend(headingindex);
+}
+
+
+function findindex(content) {
+    var headingnode = content.previousElementSibling;
+    if (headingnode.classList.contains('heading')) {
+        return headingnode.querySelector('.headingindex').textContent.replace(' ', '');
+    } else {
+        return '';
+    }
+}
+
+
+function addarrow(heading) {
+    var content = heading.nextElementSibling;
     if (content != null && content.classList.contains('content')) {
-        let contentcontent = content.querySelectorAll(':scope > p, :scope > pre, :scope > ul');
-        let contentheadings = content.querySelectorAll(':scope > .heading');
-        
-        if (contentheadings.length > 0) {
-            heading.querySelector(':scope > .showheadings').style.display = 'inline';
-            for (let elem of contentheadings) {
+        var arrowup = document.createElement('BUTTON');
+        arrowup.classList.add('arrowup');
+        arrowup.innerHTML = "&#8593;";
+        heading.querySelector('span').appendChild(arrowup);
+        var arrowdown = document.createElement('BUTTON');
+        arrowdown.classList.add('arrowdown');
+        arrowdown.innerHTML = "&#8595;";
+        heading.querySelector('span').appendChild(arrowdown);
+        var showall = document.createElement('span');
+        showall.classList.add('showall');
+        showall.textContent = "Show all";
+        heading.querySelector('span').appendChild(showall);
+    }
+}
+
+
+//Adding headingindex and arrows
+var allcontents = document.querySelectorAll('.maincontent, .content');
+for (let elem of allcontents) {
+    var allheadings = elem.querySelectorAll(':scope > .heading');
+    if (allheadings.length > 0) {
+        for (let i = 0; i < allheadings.length; i++) {
+            var heading = allheadings[i];
+            var index = i + 1;
+            addheadingindex(heading, findindex(elem) + index + '.');
+            addarrow(heading);
+        }
+    }
+}
+
+
+//Adding entry to table of contents
+var allheadings = document.querySelectorAll('.heading');
+var tableofcontents = document.querySelector('.toc');
+for (let elem of allheadings) {
+    var entry = document.createElement(elem.tagName);
+    entry.classList = elem.classList;
+    var link = document.createElement('a');
+    var linkcontent = elem.querySelector('span').cloneNode(true);
+    linkcontent.id = 'TOC' + linkcontent.id;
+    link.appendChild(linkcontent);
+    link.href = '#' + elem.querySelector('span').id;
+    entry.appendChild(link);
+    tableofcontents.appendChild(entry);
+}
+
+
+function showchild(tocheading) {//Function works on a heading in toc tocheading: e.g. <h1>
+    //Display the heading in toc
+    tocheading.style.display = 'block'; 
+    //Display the heading in maincontent
+    var headingid = tocheading.querySelector('a').href.split('#')[1]; 
+    var heading = document.querySelector('#'+headingid).parentNode; 
+    heading.style.display = 'block'; 
+    //Dispay arrowup, display showall, hide arrowdown of the heading in both toc and maincontent
+    if (tocheading.querySelector('.arrowdown') != null) {
+        tocheading.querySelector('.arrowdown').style.display = 'none'; 
+        tocheading.querySelector('.arrowup').style.display = 'inline';
+        tocheading.querySelector('.showall').style.display = 'inline';
+        heading.querySelector('.arrowdown').style.display = 'none'; 
+        heading.querySelector('.arrowup').style.display = 'inline';
+        heading.querySelector('.showall').style.display = 'inline';
+    }
+    var content = heading.nextElementSibling; //Get content of the heading
+    if (content != null && content.classList.contains('content')) {
+        content.style.display = 'block';
+        //Hide child contents in maincontent
+        var childcontents = content.querySelectorAll(':scope > .content');
+        if (childcontents.length > 0) {
+            for (let elem of childcontents) {
                 elem.style.display = 'none';
             }
-        } else {
-            heading.querySelector(':scope > .showheadings').style.display = 'none';
         }
-        
-        if (contentcontent.length > 0) {
-            heading.querySelector(':scope > .showall').style.display = 'inline';
-            for (let elem of contentcontent) {
-                elem.style.display = 'none';
+        var childheadings = content.querySelectorAll(':scope > .heading');
+        if (childheadings.length > 0) {
+            for (let elem of childheadings) {
+                //Display child headings in maincontent
+                elem.style.display = 'block';
+                //Display child headings in toc
+                var tocchildheadingid = '#TOC' + elem.querySelector('span').id;
+                var tocchildheading = document.querySelector(tocchildheadingid).parentElement.parentElement;
+                tocchildheading.style.display = 'block';
+                //Display arrowdown, display showall, hide arrowup of child headings in both toc and maincontent
+                if (tocchildheading.querySelector('.arrowdown') != null) {
+                    tocchildheading.querySelector('.arrowdown').style.display = 'inline';
+                    tocchildheading.querySelector('.arrowup').style.display = 'none';
+                    tocchildheading.querySelector('.showall').style.display = 'inline';
+                    elem.querySelector('.arrowdown').style.display = 'inline';
+                    elem.querySelector('.arrowup').style.display = 'none';
+                    elem.querySelector('.showall').style.display = 'inline';
+                }
             }
-        } else {
-            heading.querySelector(':scope > .showall').style.display = 'none';
-        }
-    } else {
-        heading.querySelector(':scope > .showheadings').style.display = 'none';
-        heading.querySelector(':scope > .showall').style.display = 'none';
-        
-    }
-}
-
-
-function showheading(heading) {
-    heading.querySelector(':scope > .showheadings').style.display = 'none';
-    heading.querySelector(':scope > .hideall').style.display = 'inline';
-    let content = heading.nextElementSibling;
-    let contentcontent = content.querySelectorAll(':scope > p, :scope > pre, :scope > ul');
-    let contentheadings = content.querySelectorAll(':scope > .heading');
-
-    for (let elem of contentheadings) {
-        elem.style.display = 'block';
-    }
-
-    if (contentcontent.length > 0) {
-        heading.querySelector(':scope > .showall').style.display = 'inline';
-        for (let elem of contentcontent) {
-            elem.style.display = 'none';
-        }
-    } else {
-        heading.querySelector(':scope > .showall').style.display = 'none';
-    }
-}
-
-
-function showall(heading) {
-    heading.querySelector(':scope > .showall').style.display = 'none';
-    heading.querySelector(':scope > .hideall').style.display = 'inline';
-    let content = heading.nextElementSibling;
-    let contentcontent = content.querySelectorAll(':scope > p, :scope > pre, :scope > ul');
-    let contentheadings = content.querySelectorAll(':scope > .heading');
-
-    if (contentheadings.length > 0) {
-        heading.querySelector(':scope > .showheadings').style.display = 'inline';
-        for (let elem of contentheadings) {
-            elem.style.display = 'block';
-        }
-    } else {
-        heading.querySelector(':scope > .showheadings').style.display = 'none';
-    }
-
-    if (contentcontent.length > 0) {
-        for (let elem of contentcontent) {
-            elem.style.display = 'block';
         }
     }
 }
 
 
-var headings = document.querySelectorAll('.heading');
-for (let elem of headings) {
-    var node = document.createElement("span");
-    var textnode = document.createTextNode("Show headings only");
-    node.appendChild(textnode);
-    node.classList.add('showheadings');
-    elem.appendChild(node)
-    
-    var node = document.createElement("span");
-    var textnode = document.createTextNode("Show all");
-    node.appendChild(textnode);
-    node.classList.add('showall');
-    elem.appendChild(node)
-    
-    var node = document.createElement("span");
-    var textnode = document.createTextNode("Hide all");
-    node.appendChild(textnode);
-    node.classList.add('hideall');
-    elem.appendChild(node)
-    
-    shownothing(elem);
+function hidechild(tocheading) {//Function works on a heading in toc tocheading: e.g. <h1>
+    //Display the heading in toc
+    tocheading.style.display = 'block'; 
+    //Display the heading in maincontent
+    var headingid = tocheading.querySelector('a').href.split('#')[1]; 
+    var heading = document.querySelector('#'+headingid).parentNode; 
+    heading.style.display = 'block'; 
+    //Dispay arrowdown, display showall, hide arrowup of the heading in both toc and maincontent
+    if (tocheading.querySelector('.arrowdown') != null) {
+        tocheading.querySelector('.arrowdown').style.display = 'inline'; 
+        tocheading.querySelector('.arrowup').style.display = 'none';
+        tocheading.querySelector('.showall').style.display = 'inline';
+        heading.querySelector('.arrowdown').style.display = 'inline'; 
+        heading.querySelector('.arrowup').style.display = 'none';
+        heading.querySelector('.showall').style.display = 'inline';
+    }
+    var content = heading.nextElementSibling; //Get content of the heading
+    if (content != null && content.classList.contains('content')) {
+        //Hide child contents and child headings in maincontent
+        content.style.display = 'none';
+        //Hide child headings in toc
+        var childheadings = content.querySelectorAll(':scope .heading');
+        if (childheadings.length > 0) {
+            for (let elem of childheadings) {
+                var tocchildheadingid = '#TOC' + elem.querySelector('span').id;
+                var tocchildheading = document.querySelector(tocchildheadingid).parentElement.parentElement;
+                tocchildheading.style.display = 'none';
+            }
+        }
+    }
 }
 
 
-var showheadingss = document.querySelectorAll('.showheadings');
-for (let elem of showheadingss) {
+function showall(tocheading) {//Function works on a heading in toc tocheading: e.g. <h1>
+    //Display the heading in toc
+    tocheading.style.display = 'block'; 
+    //Display the heading in maincontent
+    var headingid = tocheading.querySelector('a').href.split('#')[1]; 
+    var heading = document.querySelector('#'+headingid).parentNode; 
+    heading.style.display = 'block'; 
+    //Dispay arrowup, hide showall, hide arrowdown of the heading
+    if (tocheading.querySelector('.arrowdown') != null) {
+        tocheading.querySelector('.arrowdown').style.display = 'none'; 
+        tocheading.querySelector('.arrowup').style.display = 'inline';
+        tocheading.querySelector('.showall').style.display = 'none';
+        heading.querySelector('.arrowdown').style.display = 'none'; 
+        heading.querySelector('.arrowup').style.display = 'inline';
+        heading.querySelector('.showall').style.display = 'none';
+    }
+    var content = heading.nextElementSibling; //Get content of the heading
+    if (content != null && content.classList.contains('content')) {
+        content.style.display = 'block';
+        //Display all levels of child contents and child headings in maincontent
+        var childcontents = content.querySelectorAll('.heading, .content');
+        if (childcontents.length > 0) {
+            for (let elem of childcontents) {
+                elem.style.display = 'block';
+            }
+        }
+        var childheadings = content.querySelectorAll(':scope .heading');
+        if (childheadings.length > 0) {
+            for (let elem of childheadings) {
+                //Display all levels of child headings in toc
+                var tocchildheadingid = '#TOC' + elem.querySelector('span').id;
+                var tocchildheading = document.querySelector(tocchildheadingid).parentElement.parentElement;
+                tocchildheading.style.display = 'block';
+                //Hide arrowdown, hide showall, hide arrowup all all levels of child headings in both toc and maincontent
+                if (tocchildheading.querySelector('.arrowdown') != null) {
+                    tocchildheading.querySelector('.arrowdown').style.display = 'none';
+                    tocchildheading.querySelector('.arrowup').style.display = 'inline';
+                    tocchildheading.querySelector('.showall').style.display = 'none';
+                    elem.querySelector('.arrowdown').style.display = 'none';
+                    elem.querySelector('.arrowup').style.display = 'inline';
+                    elem.querySelector('.showall').style.display = 'none';
+                }
+            }
+        }
+    }
+}
+
+
+var h1s = document.querySelectorAll('.toc h1');
+for (let elem of h1s) {
+    hidechild(elem);
+}
+
+var tocarrowdowns = document.querySelectorAll('.toc .arrowdown');
+for (let elem of tocarrowdowns) {
     elem.addEventListener('click', function(e) {
         e.stopPropagation();
-        let heading = elem.parentElement;
-        showheading(heading);
+        var tocheading = elem.parentElement.parentElement.parentElement;
+        showchild(tocheading);
     })
 }
 
+var tocarrowups = document.querySelectorAll('.toc .arrowup');
+for (let elem of tocarrowups) {
+    elem.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var tocheading = elem.parentElement.parentElement.parentElement;
+        hidechild(tocheading);
+    })
+}
 
-var showalls = document.querySelectorAll('.showall');
+var tocshowalls = document.querySelectorAll('.toc .showall');
+for (let elem of tocshowalls) {
+    elem.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var tocheading = elem.parentElement.parentElement.parentElement;
+        showall(tocheading);
+    })
+}
+
+var arrowdowns = document.querySelectorAll('.maincontent .arrowdown');
+for (let elem of arrowdowns) {
+    elem.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var tocheadingid = '#TOC' + elem.parentElement.id;
+        var tocheading = document.querySelector(tocheadingid).parentElement.parentElement;
+        showchild(tocheading);
+    })
+}
+
+var arrowups = document.querySelectorAll('.maincontent .arrowup');
+for (let elem of arrowups) {
+    elem.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var tocheadingid = '#TOC' + elem.parentElement.id;
+        var tocheading = document.querySelector(tocheadingid).parentElement.parentElement;
+        hidechild(tocheading);
+    })
+}
+
+var showalls = document.querySelectorAll('.maincontent .showall');
 for (let elem of showalls) {
     elem.addEventListener('click', function(e) {
         e.stopPropagation();
-        let heading = elem.parentElement;
-        showall(heading)
+        var tocheadingid = '#TOC' + elem.parentElement.id;
+        var tocheading = document.querySelector(tocheadingid).parentElement.parentElement;
+        showall(tocheading);
     })
 }
-
-
-var hidealls = document.querySelectorAll('.hideall');
-for (let elem of hidealls) {
-    elem.addEventListener('click', function(e) {
-        e.stopPropagation();
-        let heading = elem.parentElement;
-        let content = heading.nextElementSibling;
-        let contentheadings = content.querySelectorAll(':scope .heading');
-        for (let contentheading of contentheadings) {
-            shownothing(contentheading);
-        }
-        shownothing(heading);
-    })
-}
-
