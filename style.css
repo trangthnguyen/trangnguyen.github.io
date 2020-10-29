@@ -3,6 +3,11 @@
     margin: 0;
 }
 
+button {
+    border: none;
+    outline:none;
+}
+
 body {
     min-width: 53rem;
 }
@@ -18,14 +23,13 @@ header p {
     padding: 0;
 }
 
-#disclaimer {
-    background-color: inherit;
-    font-size: 0.8rem;
-}
-
 #menubutton, #sitename, #disclaimer {
     display: flex;
     align-items: center;
+}
+
+#disclaimer {
+    font-size: 0.8rem;
 }
 
 #menubutton button {
@@ -34,11 +38,6 @@ header p {
     color: white;
     font-weight: 600;
     border-radius: 10%;
-    outline:none;
-}
-
-button: {
-    border: none;
 }
 
 #menu {
@@ -171,7 +170,6 @@ button {
     display: none;
 }
 
-
 h4[class~="command"] {
     padding-left: 8rem;
 }
@@ -200,15 +198,9 @@ pre {
     padding-left: -30rem;
 }
 
-p, .heading, li, pre {
+.content p, .content .heading, content li, content pre {
     padding-bottom: 0.75rem;
 }
-
-/*
-.content h5 {
-    display: block;
-}
-*/
 
 code {
     color: brown;
