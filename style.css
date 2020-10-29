@@ -198,7 +198,7 @@ pre {
     padding-left: -30rem;
 }
 
-.content p, .content .heading, content li, content pre {
+main p, main .heading, main li, main pre {
     padding-bottom: 0.75rem;
 }
 

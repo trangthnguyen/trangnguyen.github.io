@@ -73,14 +73,12 @@ function showchild(tocheading) {//Function works on a heading in toc tocheading:
     var headingid = tocheading.querySelector('a').href.split('#')[1]; 
     var heading = document.querySelector('#'+headingid).parentNode; 
     heading.style.display = 'block'; 
-    //Dispay arrowup, display showall, hide arrowdown of the heading in both toc and maincontent
+    //Dispay arrowup, hide arrowdown of the heading in both toc and maincontent
     if (tocheading.querySelector('.arrowdown') != null) {
         tocheading.querySelector('.arrowdown').style.display = 'none'; 
         tocheading.querySelector('.arrowup').style.display = 'inline';
-        tocheading.querySelector('.showall').style.display = 'inline';
         heading.querySelector('.arrowdown').style.display = 'none'; 
         heading.querySelector('.arrowup').style.display = 'inline';
-        heading.querySelector('.showall').style.display = 'inline';
     }
     var content = heading.nextElementSibling; //Get content of the heading
     if (content != null && content.classList.contains('content')) {
@@ -94,6 +92,10 @@ function showchild(tocheading) {//Function works on a heading in toc tocheading:
         }
         var childheadings = content.querySelectorAll(':scope > .heading');
         if (childheadings.length > 0) {
+            console.log(childheadings);
+            //If there are child headings, display showall of the heading in both toc and maincontent
+            tocheading.querySelector('.showall').style.display = 'inline';
+            heading.querySelector('.showall').style.display = 'inline';
             for (let elem of childheadings) {
                 //Display child headings in maincontent
                 elem.style.display = 'block';
@@ -111,6 +113,9 @@ function showchild(tocheading) {//Function works on a heading in toc tocheading:
                     elem.querySelector('.showall').style.display = 'inline';
                 }
             }
+        } else {
+            tocheading.querySelector('.showall').style.display = 'none';
+            heading.querySelector('.showall').style.display = 'none';
         }
     }
 }
