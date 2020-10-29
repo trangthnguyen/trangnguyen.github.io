@@ -50,7 +50,12 @@ header p {
     border-bottom-right-radius: 1rem;
 }
 
+#menu #home {
+    margin-bottom: 1rem;
+}
+
 #menu a {
+    display: block;
     text-decoration: none;
     color: darkcyan;
     font-weight: 600;
