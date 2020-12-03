@@ -6,7 +6,7 @@
 		<meta name="description" content="This includes Trang Nguyen's Django learning notes.">
 		<title>Trang's Django learning notes</title>
 		<link href="../style.css" rel="stylesheet" type="text/css">
-        <link href="style.css" rel="stylesheet" type="text/css">
+        <link href="../style-book.css" rel="stylesheet" type="text/css">
         <script src="../script.js" defer></script>
 		<link rel="shortcut icon" href="../firefly.ico" type="image/x-icon">
 	</head>
@@ -186,7 +186,11 @@
                             <div class="content">
                                 <p><code>class BooleanField(**options)</code></p>
                                 
-                                <p> A true/false field. The default form widget for this field is <code>CheckboxInput</code>, or <code>NullBooleanSelect</code> if <code>null=True</code>.</p>
+                                <p> A true/false field.</p> 
+                                
+                                <p>The default form widget for this field is <code>CheckboxInput</code>, or <code>NullBooleanSelect</code> if <code>null=True</code>.</p>
+                                
+                                <p>The default value of <code>BooleanField</code> is <code>None</code> when <code>Field.default</code> isn’t defined.</p>
                             </div>
                             
                             <h5 class="heading command">
@@ -1226,7 +1230,7 @@
                             </h5>
                             
                             <div class="content">
-                                <p>Sets a limit to the available choices for this field when this field is rendered using a <code>ModelForm</code> or the admin (by default, all objects in the queryset are available to choose). Either a dictionary, a Q object, or a callable returning a dictionary or Q object can be used. For example:</p>
+                                <p>Sets a limit to the available choices for this field when this field is rendered using a <code>ModelForm</code> or the admin (by default, all objects in the queryset are available to choose). Either a dictionary, a <a href="https://docs.djangoproject.com/en/3.1/ref/models/querysets/#q-objects">Q object</a>, or a callable returning a dictionary or <a href="https://docs.djangoproject.com/en/3.1/ref/models/querysets/#q-objects">Q object</a> can be used. For example:</p>
                                 <pre><code>
                                 staff_member = models.ForeignKey(
                                     User,
@@ -1244,7 +1248,7 @@
                                 limit_choices_to = limit_pub_date_choices
                                 </code></pre>
                                 
-                                <p>If <code>limit_choices_to</code> is or returns a Q object, which is useful for complex queries, then it will only have an effect on the choices available in the admin when the field is not listed in <code>raw_id_fields</code> in the <code>ModelAdmin</code> for the model.</p>
+                                <p>If <code>limit_choices_to</code> is or returns a <a href="https://docs.djangoproject.com/en/3.1/ref/models/querysets/#q-objects">Q object</a>, which is useful for complex queries, then it will only have an effect on the choices available in the admin when the field is not listed in <code>raw_id_fields</code> in the <code>ModelAdmin</code> for the model.</p>
 
                                 <p>Note: If a callable is used for <code>limit_choices_to</code>, it will be invoked every time a new form is instantiated. It may also be invoked when a model is validated, for example by management commands or the admin. The admin constructs querysets to validate its form inputs in various edge cases multiple times, so there is a possibility your callable may be invoked several times.</p>
                             </div>
@@ -1255,7 +1259,7 @@
                             </h5>
                             
                             <div class="content">
-                                <p>The name to use for the relation from the related object back to this one. It’s also the default value for <code>related_query_name</code> (the name to use for the reverse filter name from the target model). See the related objects documentation for a full explanation and example. Note that you must set this value when defining relations on abstract models; and when you do so some special syntax is available.</p>
+                                <p>The name to use for the relation from the related object back to this one. It’s also the default value for <a href="#ForeignKey-related_query_name"><code>related_query_name</code></a> (the name to use for the reverse filter name from the target model). See the related objects documentation for a full explanation and example. Note that you must set this value when defining relations on abstract models; and when you do so some special syntax is available.</p>
 
                                 <p>If you’d prefer Django not to create a backwards relation, set <code>related_name</code> to <code>'+'</code> or end it with <code>'+'</code>. For example, this will ensure that the <code>User</code> model won’t have a backwards relation to this model:</p>
                                 <pre><code>
@@ -2505,7 +2509,7 @@
                                     <p>You may have noticed Django database objects use the same <code>save()</code> method for creating and changing objects. Django abstracts the need to use <code>INSERT</code> or <code>UPDATE</code> SQL statements. Specifically,</p>
                                     
                                     <ul>
-                                        <li> When you call <code>save()</code> and the object’s primary key attribute does \textbf{not} define a <code>default</code>, Django follows this algorithm:</li>
+                                        <li> When you call <code>save()</code> and the object’s primary key attribute does <em>not</em> define a <code>default</code>, Django follows this algorithm:</li>
                                         <ul>
                                             <li> If the object’s primary key attribute is set to a value that evaluates to <code>True</code> (i.e., a value other than <code>None</code> or the empty string), Django executes an <code>UPDATE</code>.</li>
 
@@ -2548,7 +2552,7 @@
 
                                         <li>If the old <code>number_sold</code> value retrieved from the database was 10, then the value of 11 will be written back to the database.</li>
                                         
-                                        <li>item The process can be made robust, avoiding a race condition, as well as slightly faster by expressing the update relative to the original field value, rather than as an explicit assignment of a new value. Django provides <code>F expressions</code> for performing this kind of relative update. Using <code>F expressions</code>, the previous example is expressed as:</li>
+                                        <li>The process can be made robust, avoiding a race condition, as well as slightly faster by expressing the update relative to the original field value, rather than as an explicit assignment of a new value. Django provides <code>F expressions</code> for performing this kind of relative update. Using <code>F expressions</code>, the previous example is expressed as:</li>
                                         <pre><code>
                                         >>> from django.db.models import F
                                         >>> product = Product.objects.get(name='Venezuelan Beaver Cheese')
@@ -2734,6 +2738,41 @@
                         <div class="content">
                             <p>You are free to override model methods to alter behavior.</p>
                         </div>
+                    </div>
+                </div>
+                
+                <h2 class="heading">
+                    <span id="Modifying-models">Modifying models</span>
+                </h2>
+                
+                <div class="content">
+                    <h3 class="heading">
+                        <span id="Change-a-field-s-name">Change a field's name</span>
+                        <span class="source"><a href="https://gist.github.com/dhbradshaw/e2bdeb502b0d0d2acced">Source</a></span>
+                    </h3>
+                    
+                    <div class="content">
+                        <p>To change a field name in django 1.7+</p>
+                        
+                        <ol>
+                            <li>Edit the field name in the model (but remember the old field name: you need it for step 3!)</li>
+
+                            <li>Create an empty migration</li>
+                            <pre><code>
+                            $ python manage.py makemigrations --empty myApp
+                            </code></pre>
+                            
+                            <li>Edit the empty migration (it's in the migrations folder in your app folder, and will be the most recent migration) by adding</li>
+                            <pre><code>
+                            migrations.RenameField('MyModel', 'old_field_name', 'new_field_name'),
+                            </code></pre>
+                            <p>to the operations list.</p>
+
+                            <li>Apply the migration</li>
+                            <pre><code>
+                            $ python manage.py migrate myApp
+                            </code></pre>
+                        </ol>
                     </div>
                 </div>
 			</div>
